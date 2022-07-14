@@ -32,12 +32,13 @@
 
       <div class="modal-body">
         <form
-        class="row g-3"
-        action="/staffs"
-        id="personal"
-        method="POST"
-       autocomplete="off"
-      >
+          class="row g-3 needs-validation"
+          action="/staffs"
+          id="personal"
+          method="POST"
+          autocomplete="off"
+          novalidate
+        >
     
     <div class="form-floating">
      
@@ -49,7 +50,8 @@
         autofocus
         required
       />
-      <label for="staffLastName" class="form-label">Lastname</label>
+      <label for="staffLastName" class="form-label">Nom</label>
+      <div class="valid-feedback">BIEN</div>
     </div>
 
         <div class="form-floating">
@@ -59,9 +61,10 @@
             name="staff[firstname]"
             type="text"
             class="form-control"
+            
              />
-          <label for="staffFirstName" class="form-label">Firstname</label>
-       
+          <label for="staffFirstName" class="form-label">Prénom</label>
+          <div class="valid-feedback">BIEN</div>
         </div>
         <div class="form-floating">
          
@@ -71,17 +74,20 @@
             class="form-select"
             required
           >
-            <option selected disabled>Fonction</option>
-            <option class="option" value="Medecin">Medecin</option>
+            <option selected disabled value="">Fonction</option>
+            <option class="option" value="Medecin">Médecin</option>
             <option class="option" value="technicien">Technicien</option>
+            <option class="option" value="assitant(e) Medicale">Assitant(e) Medical(e)</option>
           </select>
-          <label for="staffGender" class="form-label">Fonction</label>
+          <label for="staffFonction" class="form-label">Fonction</label>
+          <div class="valid-feedback">BIEN</div>
         </div>
         <div class="form-floating">
 
         <div class="form-check form-switch ms-2">
           <input class="form-check-input" type="checkbox" name="staff[externe]" value="externe" role="switch" id="externe">
           <label class="form-check-label" for="externe">Externe</label>
+          <div class="valid-feedback">BIEN</div>
         </div>
       </div>
 
@@ -96,6 +102,7 @@
             
           />
           <label for="staffemail" class="form-label">Email</label>
+          <div class="valid-feedback">BIEN</div>
         </div>
         <div class="form-floating">
          
@@ -105,7 +112,8 @@
             id="staffPhone"
             name="staff[phone]"
           />
-          <label for="staffPhone" class="form-label">Phone</label>
+          <label for="staffPhone" class="form-label">Télephone</label>
+          <div class="valid-feedback">BIEN</div>
         </div>
        
         <div class="modal-footer mt-4">

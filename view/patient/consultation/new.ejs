@@ -30,7 +30,12 @@
       </div>
 
       <div class="modal-body">
-        <form action="/patient/<%=patient.id%>/acte" method="POST">
+        <form
+        action="/patient/<%=patient.id%>/acte"
+        method="POST"
+        class="needs-validation"
+        novalidate
+        >
           <div class="form-floating mb-3">
             <input
               class="form-control"
@@ -69,7 +74,6 @@
               id="technicien"
               name="consultation[technicien]"
               class="form-select"
-              
             >
               <option class="option" value="" disabled selected>
                 Technicien

@@ -30,13 +30,12 @@
       </div>
 
       <div class="modal-body">
-        <form
-          class=""
-          action="/patient/<%= patient.id %>/acte/<%= consultation.id %>?_method=PUT"
-          method="POST"
-          id="personal"
-          novalidate
-        >
+        <form 
+        action="/patient/<%= patient.id %>/acte/<%= consultation.id %>?_method=PUT" 
+        method="POST"
+        id="personal" 
+        class="needs-validation"
+        novalidate>
           <div class="form-floating mb-3">
             <input class="form-control" type="date" id="dateacte"
             name="consultation[dateacte]" placeholder="date de l'acte" required
