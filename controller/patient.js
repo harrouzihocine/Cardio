@@ -244,17 +244,18 @@ module.exports.generatePatientpdf = async (req, res) => {
       {
         columns: [
           {
-            width: "*",
+            // width: "*",
             text: "Fiche Patient:",
             fontSize: 18,
             alignment: "left",
-            margin: [0, 30, 0, 10],
+            margin: [0, 30, 0, 0],
+            bold:true
           },
           {
-            width: 100,
+            // width: 100,
             text: `${patient.fullname.toUpperCase()}`,
             alignment: "left",
-            margin: [0, 30, 0, 10],
+            margin: [0, 30, 0, 0],
             fontSize: 18,
             alignment: "left",
           },
