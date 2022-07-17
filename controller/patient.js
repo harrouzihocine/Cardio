@@ -9,7 +9,6 @@ var fonts = {
     bolditalics: "fonts/roboto/Roboto-MediumItalic.ttf",
   },
 };
- 
 
 const moment = require("moment");
 const Staff = require("../model/staff");
@@ -243,28 +242,49 @@ module.exports.generatePatientpdf = async (req, res) => {
 
     content: [
       {
+        columns: [
+          {
+            width: "*",
+            text: "Fiche Patient:",
+            fontSize: 18,
+            alignment: "left",
+            margin: [0, 30, 0, 10],
+          },
+          {
+            width: 100,
+            text: `${patient.fullname.toUpperCase()}`,
+            alignment: "left",
+            margin: [0, 30, 0, 10],
+            fontSize: 18,
+            alignment: "left",
+          },
+        ],
+      },
+      // {
+      //   text: `${patient.fullname.toUpperCase()}`,
+      //   color: "#061e30",
+      //   margin: [30, 0, 0, 10],
+      //   fontSize: 22,
+      //   alignment: "center",
+      // },
+      {
         color: "#061e30",
-        margin: [30, 50, 0, 10],
+        margin: [30, 20, 0, 10],
+
         columns: [
           // column 1
           {
             // auto-sized columns have their widths based on their content
             width: "*",
-            stack: [
-              { text: `${patient.fullname.toUpperCase()}` },
-              {
-                qr: `http://192.168.1.78:8000/patient/${patient.id}`,
-                fit: '120',
-                foreground: "#1e3444",
-                margin: [10, 10, 10, 10],
-                alignment: "center",
-              },
-            ],
-            text: `${patient.fullname.toUpperCase()}`,
-            fontSize: 22,
+            qr: `http://oasis-cardiologie.ddns.net:8000/patient//generatepdf/${patient.id}`,
+            fit: "80",
+            foreground: "#1e3444",
+            // margin: [0, 0, 10, 0],
+            alignment: "center",
           },
           // column 2
           {
+            alignment: "left",
             // star-sized columns fill the remaining space
             // if there's more than one star-column, available width is divided equally
             width: "*",
@@ -283,6 +303,8 @@ module.exports.generatePatientpdf = async (req, res) => {
                 bold: true,
               },
               {
+                // margin: [30, 0, 20, 0],
+                // alignment: "left",
                 width: "*",
                 stack: [
                   `${patient.age} ans`,
